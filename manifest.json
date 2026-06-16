@@ -1,0 +1,19 @@
+{
+  "name": "Parkuhr PWA",
+  "short_name": "Parkuhr",
+  "description": "Eine einfache Parkuhr-App mit Countdown und Warnmeldung vor Ablauf.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1f2937",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
