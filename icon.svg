@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Parkuhr Icon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="256" cy="250" r="142" fill="#ffffff" opacity="0.96"/>
+  <circle cx="256" cy="250" r="105" fill="none" stroke="#2563eb" stroke-width="26" stroke-linecap="round"/>
+  <path d="M256 178v82l62 36" fill="none" stroke="#111827" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="190" y="390" width="132" height="38" rx="19" fill="#ffffff" opacity="0.96"/>
+  <text x="256" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff">P</text>
+</svg>
