@@ -1,4 +1,4 @@
-const CACHE_NAME = 'parkuhr-pwa-v2';
+const CACHE_NAME = 'parkuhr-pwa-v3';
 const APP_FILES = ['./', './index.html', './style.css', './app.js', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', (event) => {
