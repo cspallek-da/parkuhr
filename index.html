@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f2937">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Parkuhr">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Parkuhr</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card hero">
+      <div class="topline">
+        <span class="badge">PWA</span>
+        <button id="installButton" class="ghost" hidden>Installieren</button>
+      </div>
+      <h1>Parkuhr</h1>
+      <p class="subtitle">Stelle deine Parkzeit ein. Kurz vor Ablauf erscheint eine deutliche Warnung auf dem Bildschirm.</p>
+    </section>
+
+    <section class="card meter-card" aria-live="polite">
+      <div class="meter">
+        <div id="progressRing" class="ring" style="--progress: 0deg;">
+          <div class="ring-inner">
+            <div id="timeLeft" class="time-left">00:00</div>
+            <div id="statusText" class="status">Bereit</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card controls">
+      <label for="durationMinutes">Parkzeit</label>
+      <div class="input-row">
+        <input id="durationMinutes" type="number" min="1" max="999" inputmode="numeric" value="30">
+        <span>Minuten</span>
+      </div>
+
+      <label for="warningMinutes">Warnung vorher</label>
+      <div class="input-row">
+        <input id="warningMinutes" type="number" min="0" max="999" inputmode="numeric" value="5">
+        <span>Minuten</span>
+      </div>
+
+      <label for="note">Hinweis / Parkplatz</label>
+      <input id="note" type="text" maxlength="80" placeholder="z. B. Parkschein bis 14:30 Uhr">
+
+      <div class="button-grid">
+        <button id="startButton" class="primary">Parkuhr starten</button>
+        <button id="pauseButton" disabled>Pause</button>
+        <button id="resetButton" class="danger" disabled>Zurücksetzen</button>
+      </div>
+
+      <button id="notifyButton" class="secondary">Bildschirm-/Browser-Hinweis aktivieren</button>
+      <p class="hint">Wichtig: iPhone/iPad können Hinweise im Browser einschränken. Die Warnung in der App funktioniert, solange die App geöffnet ist.</p>
+    </section>
+  </main>
+
+  <div id="messageOverlay" class="overlay" hidden>
+    <div class="message-box">
+      <div id="messageIcon" class="message-icon">⚠️</div>
+      <h2 id="messageTitle">Parkzeit läuft bald ab</h2>
+      <p id="messageText">Bitte rechtzeitig zum Fahrzeug zurückkehren.</p>
+      <button id="closeMessage" class="primary">OK</button>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
