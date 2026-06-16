@@ -218,6 +218,11 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   z-index: 10;
 }
 
+/* Wichtig für iOS/Safari: Meldungsfenster wirklich ausblenden, wenn hidden gesetzt ist. */
+.overlay[hidden] {
+  display: none !important;
+}
+
 .message-box {
   width: min(420px, 100%);
   background: var(--card);
