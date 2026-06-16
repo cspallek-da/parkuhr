@@ -21,35 +21,58 @@
         <button id="installButton" class="ghost" hidden>Installieren</button>
       </div>
       <h1>Parkuhr</h1>
-      <p class="subtitle">Stelle deine Parkzeit ein. Kurz vor Ablauf erscheint eine deutliche Warnung auf dem Bildschirm.</p>
+      <p class="subtitle">Parkzeit einstellen, rechtzeitig erinnern lassen und zurück zum Auto laufen.</p>
     </section>
 
     <section class="card meter-card" aria-live="polite">
       <div class="meter">
         <div id="progressRing" class="ring" style="--progress: 0deg;">
           <div class="ring-inner">
-            <div id="timeLeft" class="time-left">00:00</div>
+            <div id="timeLeft" class="time-left">30:00</div>
             <div id="statusText" class="status">Bereit</div>
           </div>
         </div>
       </div>
+      <div id="activeInfo" class="active-info"></div>
     </section>
 
     <section class="card controls">
-      <label for="durationMinutes">Parkzeit</label>
+      <label>Parkzeit Schnellwahl</label>
+      <div class="quick-grid" data-type="duration">
+        <button class="quick active" data-minutes="15">15 Min</button>
+        <button class="quick active" data-minutes="30">30 Min</button>
+        <button class="quick" data-minutes="60">60 Min</button>
+        <button class="quick" data-minutes="120">120 Min</button>
+      </div>
+
+      <label for="durationMinutes">Parkzeit manuell</label>
       <div class="input-row">
         <input id="durationMinutes" type="number" min="1" max="999" inputmode="numeric" value="30">
         <span>Minuten</span>
       </div>
 
-      <label for="warningMinutes">Warnung vorher</label>
-      <div class="input-row">
-        <input id="warningMinutes" type="number" min="0" max="999" inputmode="numeric" value="5">
-        <span>Minuten</span>
+      <label>Erinnerung vor Ablauf</label>
+      <div class="quick-grid" data-type="warning">
+        <button class="warning-quick active" data-minutes="5">5 Min</button>
+        <button class="warning-quick" data-minutes="10">10 Min</button>
+        <button class="warning-quick" data-minutes="15">15 Min</button>
+        <button class="warning-quick" data-minutes="30">30 Min</button>
       </div>
 
-      <label for="note">Hinweis / Parkplatz</label>
-      <input id="note" type="text" maxlength="80" placeholder="z. B. Parkschein bis 14:30 Uhr">
+      <label for="warningMinutes">Erinnerung manuell</label>
+      <div class="input-row">
+        <input id="warningMinutes" type="number" min="0" max="999" inputmode="numeric" value="5">
+        <span>Minuten vorher</span>
+      </div>
+
+      <label for="licensePlate">Kennzeichen</label>
+      <input id="licensePlate" type="text" maxlength="20" autocapitalize="characters" placeholder="z. B. DA CS 123">
+
+      <label for="parkingPlace">Parkplatz / Ort</label>
+      <input id="parkingPlace" type="text" maxlength="80" placeholder="z. B. Parkhaus Ebene 2">
+
+      <label for="note">Hinweis</label>
+      <input id="note" type="text" maxlength="80" placeholder="z. B. Parkschein am Automaten">
 
       <div class="button-grid">
         <button id="startButton" class="primary">Parkuhr starten</button>
@@ -58,7 +81,15 @@
       </div>
 
       <button id="notifyButton" class="secondary">Bildschirm-/Browser-Hinweis aktivieren</button>
-      <p class="hint">Wichtig: iPhone/iPad können Hinweise im Browser einschränken. Die Warnung in der App funktioniert, solange die App geöffnet ist.</p>
+      <p class="hint">Die Meldung in der App funktioniert, solange die App geöffnet ist. Ton und Vibration starten bei Erinnerung und Ablauf, wenn das Gerät es erlaubt.</p>
+    </section>
+
+    <section class="card history-card">
+      <div class="section-head">
+        <h2>Verlauf</h2>
+        <button id="clearHistoryButton" class="ghost small">Löschen</button>
+      </div>
+      <div id="historyList" class="history-list empty">Noch keine Parkvorgänge.</div>
     </section>
   </main>
 
